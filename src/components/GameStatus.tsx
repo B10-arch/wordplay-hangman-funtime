@@ -1,6 +1,7 @@
 
 import React from "react";
 import { Button } from "../components/ui/button";
+import { Award } from "lucide-react";
 
 interface GameStatusProps {
   isGameWon: boolean;
@@ -8,6 +9,7 @@ interface GameStatusProps {
   word: string;
   onPlayAgain: () => void;
   score: { wins: number; losses: number };
+  points?: number;
 }
 
 const GameStatus: React.FC<GameStatusProps> = ({
@@ -15,7 +17,8 @@ const GameStatus: React.FC<GameStatusProps> = ({
   isGameOver,
   word,
   onPlayAgain,
-  score
+  score,
+  points
 }) => {
   if (!isGameOver) return null;
 
@@ -23,7 +26,13 @@ const GameStatus: React.FC<GameStatusProps> = ({
     <div className="text-center p-6 bg-white rounded-lg shadow-lg animate-fade-in max-w-md mx-auto mb-8">
       {isGameWon ? (
         <div>
-          <h2 className="text-3xl font-bold text-green-600 mb-4">You Won!</h2>
+          <h2 className="text-3xl font-bold text-green-600 mb-2">You Won!</h2>
+          {points && (
+            <div className="flex items-center justify-center gap-2 mb-4">
+              <Award className="text-yellow-500" size={28} />
+              <p className="text-2xl font-bold text-yellow-600">{points} Points!</p>
+            </div>
+          )}
           <p className="text-xl mb-4">
             Congratulations! You guessed the word correctly.
           </p>
@@ -45,7 +54,7 @@ const GameStatus: React.FC<GameStatusProps> = ({
         </div>
       </div>
       <Button 
-        className="bg-hangman-primary hover:bg-hangman-secondary text-white px-6 py-2 rounded-md text-lg"
+        className="bg-gradient-to-r from-hangman-primary to-hangman-secondary hover:from-hangman-secondary hover:to-hangman-primary text-white px-6 py-2 rounded-md text-lg shadow-md hover:shadow-lg transition-all duration-300"
         onClick={onPlayAgain}
       >
         Play Again
