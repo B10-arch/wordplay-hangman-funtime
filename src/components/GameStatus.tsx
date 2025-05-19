@@ -23,7 +23,7 @@ const GameStatus: React.FC<GameStatusProps> = ({
   if (!isGameOver) return null;
 
   return (
-    <div className="text-center p-6 bg-white rounded-lg shadow-lg animate-fade-in max-w-md mx-auto mb-8">
+    <div className="text-center p-6 bg-gradient-to-b from-white to-hangman-light rounded-lg shadow-lg animate-fade-in max-w-md mx-auto mb-8">
       {isGameWon ? (
         <div>
           <h2 className="text-3xl font-bold text-green-600 mb-2">You Won!</h2>

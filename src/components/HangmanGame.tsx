@@ -147,8 +147,8 @@ const HangmanGame: React.FC = () => {
     setSelectedCategory(category);
   };
 
-  const toggleUseCustomWord = () => {
-    setUseCustomWord(!useCustomWord);
+  const handleSelectCustomWord = (word: string) => {
+    startGame(word);
   };
 
   useEffect(() => {
@@ -238,7 +238,7 @@ const HangmanGame: React.FC = () => {
               <Button 
                 variant="ghost" 
                 className="mt-4 text-hangman-primary"
-                onClick={toggleUseCustomWord}
+                onClick={() => setUseCustomWord(false)}
               >
                 Back
               </Button>

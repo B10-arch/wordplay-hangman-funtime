@@ -36,6 +36,33 @@ export type Database = {
         }
         Relationships: []
       }
+      scores: {
+        Row: {
+          created_at: string
+          id: string
+          player: string
+          score: number
+          time_taken: number
+          word: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          player: string
+          score: number
+          time_taken: number
+          word: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          player?: string
+          score?: number
+          time_taken?: number
+          word?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
